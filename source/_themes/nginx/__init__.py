@@ -36,7 +36,7 @@ def create_sitemap(app, exception):
         return
 
     filename = app.outdir + "/sitemap.xml"
-    print("Generating sitemap.xml in %s" % filename)
+    print("Generating sitemap.xml in {0!s}".format(filename))
 
     root = ET.Element("urlset")
     root.set("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9")
