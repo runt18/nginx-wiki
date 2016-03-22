@@ -34,16 +34,24 @@ from docutils.parsers.rst.roles import set_classes
 from sphinx.util.nodes import split_explicit_title
 
 
-def icon_role(role, rawtext, text, lineno, inliner, options={}, content=[]):
+def icon_role(role, rawtext, text, lineno, inliner, options=None, content=None):
 
+    if options is None:
+        options = {}
+    if content is None:
+        content = []
     out = '<span class="icon-holder">'
     with open("source/exts/icons/" + text + ".svg", "r") as svg:
         out = out + svg.read() + "</span>"
         node = raw('', text=out, format='html')
     return [node], []
 
-def github_role(role, rawtext, text, lineno, inliner, options={}, content=[]):
+def github_role(role, rawtext, text, lineno, inliner, options=None, content=None):
 
+    if options is None:
+        options = {}
+    if content is None:
+        content = []
     out = '<span class="icon-holder">'
     text = utils.unescape(text)
     has_explicit_title, title, part = split_explicit_title(text)
@@ -59,8 +67,12 @@ def github_role(role, rawtext, text, lineno, inliner, options={}, content=[]):
 
     return [node], []
 
-def bitbucket_role(role, rawtext, text, lineno, inliner, options={}, content=[]):
+def bitbucket_role(role, rawtext, text, lineno, inliner, options=None, content=None):
 
+    if options is None:
+        options = {}
+    if content is None:
+        content = []
     out = '<span class="icon-holder">'
     text = utils.unescape(text)
     has_explicit_title, title, part = split_explicit_title(text)
